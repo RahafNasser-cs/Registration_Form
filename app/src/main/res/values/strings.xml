@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Registration Form</string>
+    <string name="full_name">Full name</string>
+    <string name="email_address">Email address</string>
+    <string name="enter_password">Enter password</string>
+    <string name="re_enter_password">Re-enter password</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="register">Register</string>
+    <string name="date_picker">Date Picker</string>
+</resources>
