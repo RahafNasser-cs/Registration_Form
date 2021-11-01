@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,91 +24,162 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <ImageView
+        android:id="@+id/icon_full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_person_24"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toStartOf="@id/full_name"
+        app:layout_constraintTop_toTopOf="@id/full_name"
+        app:layout_constraintBottom_toBottomOf="@id/full_name"
+        android:layout_marginEnd="16dp"
+        />
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/full_name"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:drawableStart="@drawable/ic_baseline_person_24"
         android:hint="@string/full_name"
-        android:inputType="text"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@id/profile_image"
         app:layout_constraintStart_toStartOf="@id/profile_image"
         app:layout_constraintTop_toBottomOf="@id/profile_image"
-        android:text=""
-        android:textSize="12dp"
-        android:fontFamily="monospace"/>
+        android:layout_marginStart="16dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text=""
+            android:id="@+id/full_name_edit_text"
+            />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    </com.google.android.material.textfield.TextInputLayout>
+    <ImageView
+        android:id="@+id/icon_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_mail_24"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toStartOf="@id/email"
+        app:layout_constraintTop_toTopOf="@id/email"
+        app:layout_constraintBottom_toBottomOf="@id/email"
+        android:layout_marginEnd="16dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:drawableStart="@drawable/ic_baseline_mail_24"
         android:hint="@string/email_address"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@id/full_name"
         app:layout_constraintTop_toBottomOf="@id/full_name"
-        android:textSize="12dp"
-        android:fontFamily="monospace"
-        />
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:id="@+id/email_edit_text"
 
-    <androidx.appcompat.widget.AppCompatEditText
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <ImageView
+        android:id="@+id/icon_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_lock_24"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toStartOf="@id/password"
+        app:layout_constraintTop_toTopOf="@id/password"
+        app:layout_constraintBottom_toBottomOf="@id/password"
+        android:layout_marginEnd="16dp"
+        />
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:drawableStart="@drawable/ic_baseline_lock_24"
         android:hint="@string/enter_password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@id/email"
         app:layout_constraintTop_toBottomOf="@id/email"
-        android:textSize="12dp"
-        android:fontFamily="monospace"
-        />
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:id="@+id/password_edit_text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <ImageView
+        android:id="@+id/icon_re_enter_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_lock_24"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toStartOf="@id/re_enter_password"
+        app:layout_constraintTop_toTopOf="@id/re_enter_password"
+        app:layout_constraintBottom_toBottomOf="@id/re_enter_password"
+        android:layout_marginEnd="16dp"
+        />
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/re_enter_password"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:drawableStart="@drawable/ic_baseline_lock_24"
         android:hint="@string/re_enter_password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@id/password"
         app:layout_constraintTop_toBottomOf="@id/password"
-        android:textSize="12dp"
-        android:fontFamily="monospace"/>
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:id="@+id/re_enter_password_edit_text"
+            />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    </com.google.android.material.textfield.TextInputLayout>
+    <ImageView
+        android:id="@+id/icon_date_of_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_date_range_24"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toStartOf="@id/date_of_birth"
+        app:layout_constraintTop_toTopOf="@id/date_of_birth"
+        app:layout_constraintBottom_toBottomOf="@id/date_of_birth"
+        android:layout_marginEnd="16dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/date_of_birth"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:drawableStart="@drawable/ic_baseline_date_range_24"
         android:hint="@string/date_of_birth"
-        android:inputType="date"
-        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="@id/re_enter_password"
         app:layout_constraintTop_toBottomOf="@id/re_enter_password"
-        android:textSize="12dp"
-        android:fontFamily="monospace"
-        />
-    <androidx.appcompat.widget.AppCompatButton
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/date_of_birth_edit_text"
+            android:inputType="date"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@id/re_enter_password"
         app:layout_constraintTop_toBottomOf="@id/re_enter_password"
         android:id="@+id/date_picker_btn"
         android:text="@string/date_picker"
-        android:textSize="12dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/round_rect_shape"
-        android:fontFamily="monospace"/>
+        />
     <RadioGroup
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -117,9 +195,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/option_male"
             android:text="@string/male"
-            android:textSize="12dp"
             android:layout_margin="5dp"
-            android:fontFamily="monospace"
+            style="@style/Widget.Registration.CompoundButton.RadioButton"
             />
 
         <RadioButton
@@ -128,11 +205,11 @@
             android:layout_height="wrap_content"
             android:text="@string/female"
             android:layout_margin="5dp"
-            android:textSize="12dp"
-            android:fontFamily="monospace"/>
+            style="@style/Widget.Registration.CompoundButton.RadioButton"
+            />
 
     </RadioGroup>
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/gender_options"
@@ -140,20 +217,19 @@
         android:id="@+id/registration_btn"
         android:text="@string/register"
         android:layout_marginTop="5dp"
-        android:background="@drawable/round_rect_shape"
-        android:textSize="12dp"
-        android:fontFamily="monospace"
         />
-    <androidx.appcompat.widget.AppCompatCheckedTextView
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/registration_btn"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/info_txtview"
         android:layout_marginTop="5dp"
-        android:textSize="14dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        style="@style/Widget.Registration.TextView"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="20dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

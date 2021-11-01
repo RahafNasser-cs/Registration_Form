@@ -1,9 +1,15 @@
 package com.example.registrationform
 
 import android.app.DatePickerDialog
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextWatcher
+import android.view.KeyEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import com.example.registrationform.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 myCalendar.get(Calendar.DAY_OF_MONTH)).show()
         }
         binding.registrationBtn.setOnClickListener {
-            if (binding.fullName.text.toString() == "")
+            if (binding.fullNameEditText.text.toString() == "")
                 Toast.makeText(MainActivity@ this, "Enter valid name", Toast.LENGTH_LONG).show()
             else if (!isValidPassword())
                 Toast.makeText(MainActivity@ this, "Enter valid password", Toast.LENGTH_LONG).show()
@@ -39,18 +45,29 @@ class MainActivity : AppCompatActivity() {
             else
                 registration()
         }
+
+        /*binding.fullNameEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
+        }
+        binding.emailEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
+        }
+        binding.passwordEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
+        }
+        binding.reEnterPasswordEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
+        }
+        binding.dateOfBirthEditText.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
+        }*/
     }
 
     private fun updateLable(myCalendar: Calendar) {
         val myFormat = "dd-MM-yyy"
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        binding.dateOfBirth.setText(sdf.format(myCalendar.time))
+        binding.dateOfBirthEditText.setText(sdf.format(myCalendar.time))
     }
 
     fun registration() {
-        var fullName = binding.fullName.text.toString()
-        var email = binding.email.text.toString()
-        var dateOfBirth = binding.dateOfBirth.text.toString()
+        var fullName = binding.fullNameEditText.text.toString()
+        var email = binding.emailEditText.text.toString()
+        var dateOfBirth = binding.dateOfBirthEditText.text.toString()
         var gender = when (binding.genderOptions.checkedRadioButtonId) {
             binding.optionFemale.id -> "Female"
             binding.optionMale.id -> "Male"
@@ -62,8 +79,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun isValidPassword(): Boolean {
-        var password = binding.password.text.toString().trim()
-        var confirmPassword = binding.reEnterPassword.text.toString().trim()
+        var password = binding.passwordEditText.text.toString().trim()
+        var confirmPassword = binding.reEnterPasswordEditText.text.toString().trim()
         return password.equals(confirmPassword)
     }
     //working on
@@ -83,5 +100,30 @@ class MainActivity : AppCompatActivity() {
             binding.optionMale.id -> true
             else -> false
         }
+    }/*
+    fun isValidEmail2(): Boolean {
+        var mailInput = binding.email.toString().trim()
+        var emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\\\.+[a-z]+"
+
+        binding.email.addTextChangedListener(  TextWatcher() {
+            fun addTextChangedListener () {
+
+            }
+        })
+        return if (mailInput.isEmpty())
+            false
+        else
+            android.util.Patterns.EMAIL_ADDRESS.matcher(mailInput).matches()
+
+    }*/
+    private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            // Hide the keyboard
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+            return true
+        }
+        return false
     }
 }
