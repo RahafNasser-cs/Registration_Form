@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
     fun isValidPassword(): Boolean {
         var password = binding.passwordEditText.text.toString().trim()
         var confirmPassword = binding.reEnterPasswordEditText.text.toString().trim()
-        return password.equals(confirmPassword)
+        return password.equals(confirmPassword) && !password.isEmpty()
     }
     //working on
     fun isValidEmail(): Boolean {
